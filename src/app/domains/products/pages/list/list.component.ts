@@ -10,5 +10,10 @@ import { ProductComponent } from '../../components/product/product.component';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
-img = "https://picsum.photos/420/420?r=" + Math.random()
+  img = "https://picsum.photos/420/420?r=" + Math.random();
+
+  fromChild(event: string) {
+    console.log("Estamos en el padre")
+    console.log(event)
+  }
 }
