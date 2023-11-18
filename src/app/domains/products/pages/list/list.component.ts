@@ -10,5 +10,5 @@ import { ProductComponent } from '../../components/product/product.component';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
-
+img = "https://picsum.photos/420/420?r=" + Math.random()
 }
