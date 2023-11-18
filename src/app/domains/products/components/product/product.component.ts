@@ -10,4 +10,5 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductComponent {
 
+  img = "https://picsum.photos/420/420?r=" + Math.random()
 }
