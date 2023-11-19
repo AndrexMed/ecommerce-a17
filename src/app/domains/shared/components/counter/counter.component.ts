@@ -10,21 +10,43 @@ import { CommonModule } from '@angular/common';
 })
 export class CounterComponent {
 
-  @Input({ required: true}) duration = 0
-  @Input({ required: true}) message = ''
+  @Input({ required: true }) duration = 0
+  @Input({ required: true }) message = ''
 
-  constructor(){
+  constructor() {
     //NO ASYNC
     //Before render
     console.log("Constructor")
     console.log("-".repeat(10))
   }
 
-  ngOnChanges(changes: SimpleChanges){
+  ngOnChanges(changes: SimpleChanges) {
     //Before and during render
     console.log("ngOnChanges")
     console.log("-".repeat(10))
     console.log(changes)
+  }
+
+  ngOnInit() {
+    // after render
+    //una vez
+    //async, then, subs
+    console.log("ngOnInit")
+    console.log("-".repeat(10))
+    console.log("Duration => " + this.duration)
+    console.log("Message => " + this.message)
+  }
+
+  ngAfterViewInit() {
+    //After render
+    //Hijos ya fueron renderizados
+    console.log("ngAfterViewInit")
+    console.log("-".repeat(10))
+  }
+
+  ngOnDestroy() {
+    console.log("ngOnDestroy")
+    console.log("-".repeat(10))
   }
 
 }
