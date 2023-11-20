@@ -18,8 +18,8 @@
       </ul>
     </div>
     <div class="flex items-center">
-      <button (click)="toggleSideMenu()"
-        class="px-4">
+      <button (click)="toggleSideMenu()" class="px-2 border rounded relative">
+        <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">{{ cart.length }}</div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -30,16 +30,23 @@
   </div>
 </nav>
 <!-- Side menu -->
-<div
-  class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-auto transition-transform bg-white"
+<div class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-auto transition-transform bg-white"
   [class.translate-x-full]="hideSideMenu()">
   <div class="flex justify-between items-center">
     <p class="text-xl">My Cart</p>
-    <button (click)="toggleSideMenu()">
+    <button (click)="toggleSideMenu()" class="hover:text-red-400">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
         class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
+  </div>
+
+  <div *ngFor="let product of cart" class="flex mt-1 items-center">
+    <img [src]="product.image" class="w-16 h-16 rounded">
+    <div>
+      <p>{{ product.title }}</p>
+      <p>${{ product.price }}</p>
+    </div>
   </div>
 </div>
