@@ -7,11 +7,12 @@ import { Product } from '../models/product.model';
 })
 export class ProductService {
 
+  API_URL: string = 'https://api.escuelajs.co/api/v1/products';
   private http = inject(HttpClient);
 
   constructor() { }
 
   getAllProducts() {
-    return this.http.get<Product[]>('https://api.escuelajs.co/api/v1/products')
+    return this.http.get<Product[]>(`${this.API_URL}`)
   }
 }

@@ -23,12 +23,14 @@ export class ListComponent {
   constructor() { }
 
   ngOnInit() {
-    this.productService.getAllProducts().subscribe(products => {
-      this.products.set(products);
-    },
-      error => {
+    this.productService.getAllProducts().subscribe({
+      next: (products) => {
+        this.products.set(products)
+      },
+      error: (error) => {
         console.log(error)
-      })
+      }
+    });
   }
 
   addToCart(product: Product) {
