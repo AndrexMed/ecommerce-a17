@@ -43,7 +43,7 @@
   </div>
 
   <div *ngFor="let product of cart()" class="flex mt-1 items-center">
-    <img [src]="product.image" class="w-16 h-16 rounded">
+    <img [src]="product.images[0]" class="w-16 h-16 rounded">
     <div>
       <p>{{ product.title }}</p>
       <p>${{ product.price }}</p>
