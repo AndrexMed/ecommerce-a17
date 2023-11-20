@@ -19,7 +19,7 @@
     </div>
     <div class="flex items-center">
       <button (click)="toggleSideMenu()" class="px-2 border rounded relative">
-        <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">{{ cart.length }}</div>
+        <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">{{ cart().length }}</div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -42,7 +42,7 @@
     </button>
   </div>
 
-  <div *ngFor="let product of cart" class="flex mt-1 items-center">
+  <div *ngFor="let product of cart()" class="flex mt-1 items-center">
     <img [src]="product.image" class="w-16 h-16 rounded">
     <div>
       <p>{{ product.title }}</p>
