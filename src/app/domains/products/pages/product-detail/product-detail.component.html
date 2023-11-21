@@ -5,8 +5,10 @@
         </div>
         <div class="flex items-center justify-center mt-1">
             <div class="grid grid-cols-3 gap-1">
-                <img alt="ecommerce" class="object-cover object-center rounded border-2 border-gray-200 cursor-pointer hover:opacity-80"
-                    *ngFor="let image of product()?.images" [src]="image" (click)="changeCover(image)"/>
+                <img alt="ecommerce"
+                    class="object-cover object-center rounded border-2 border-gray-200 cursor-pointer hover:opacity-80"
+                    *ngFor="let image of product()?.images" [src]="image" (click)="changeCover(image)"
+                    [class.border-red-400]="image === cover()" />
             </div>
         </div>
     </div>
@@ -18,8 +20,10 @@
         <p class="leading-relaxed">
             {{ product()?.description }}
         </p>
-        <p class="title-font font-medium text-2xl text-gray-900 mt-5">{{ product()?.price | currency: '$' }}</p>
-        <button class="flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+        <p class="title-font font-medium text-2xl text-gray-900 mt-5">{{ product()?.price | currency: '$': 'symbol':
+            '1.0' }}</p>
+        <button (click)="addToCart()"
+            class="flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
             Add To Cart
         </button>
     </div>
