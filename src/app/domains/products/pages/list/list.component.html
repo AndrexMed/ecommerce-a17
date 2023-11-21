@@ -1,3 +1,12 @@
-<div class="grid grid-cols-4 gap-6 mt-8">
-    <app-product *ngFor="let product of products()" [product]="product" (addToCart)="addToCart($event)" />
+<div class="flex space-x-4 mt-5">
+    <div class="w-80">
+        <ul>
+            <li *ngFor="let category of categories()">
+                <a href="">{{ category.name }}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="grid grid-cols-4 gap-8 w-full">
+        <app-product *ngFor="let product of products()" [product]="product" (addToCart)="addToCart($event)" />
+    </div>
 </div>
